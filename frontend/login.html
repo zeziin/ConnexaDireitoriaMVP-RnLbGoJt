@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login — Connexa</title>
+  <link rel="stylesheet" href="/frontend/css/styles.css">
+</head>
+<body>
+  <header>
+    <div class="wrap header-inner">
+      <h1 class="brand"><a href="/">Connexa</a></h1>
+      <nav aria-label="Navegação principal">
+        <ul class="nav-list">
+          <li><a id="nav-create" href="/">Criar grupo</a></li>
+          <li><a id="nav-join" href="#join">Entrar em grupo</a></li>
+          <li><a href="/frontend/login.html">Login / Registrar</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="card auth-card" role="main" aria-labelledby="loginTitle">
+    <h1 id="loginTitle">Entrar / Registrar</h1>
+    <p class="lead">Área de login e criação de conta.</p>
+
+    <section aria-labelledby="signInTitle">
+      <h2 id="signInTitle">Entrar</h2>
+      <div id="signinStatus" aria-live="polite"></div>
+      <form id="signinForm" novalidate>
+        <label for="si_email">Email</label>
+        <input id="si_email" type="email" required />
+        <label for="si_senha">Senha</label>
+        <input id="si_senha" type="password" required />
+        <div class="form-actions">
+          <button type="submit">Entrar</button>
+        </div>
+      </form>
+    </section>
+
+    <hr/>
+
+    <section aria-labelledby="signUpTitle">
+      <h2 id="signUpTitle">Criar conta</h2>
+      <div id="signupStatus" aria-live="polite"></div>
+      <form id="signupForm" novalidate>
+        <label for="su_nome">Nome</label>
+        <input id="su_nome" type="text" />
+        <label for="su_email">Email institucional</label>
+        <input id="su_email" type="email" />
+        <label for="su_senha">Senha</label>
+        <input id="su_senha" type="password" />
+        <div class="form-actions">
+          <button type="submit">Registrar</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script defer src="/frontend/js/nav.js"></script>
+  <script defer src="/frontend/js/login.js"></script>
+</body>
+</html>

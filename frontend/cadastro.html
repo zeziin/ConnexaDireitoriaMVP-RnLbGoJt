@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cadastro — Connexa</title>
+  <link rel="stylesheet" href="/frontend/css/styles.css">
+  <!-- TASK-005: frontend form that consumes POST /api/usuarios/cadastro -->
+</head>
+<body>
+  <header>
+    <div class="wrap header-inner">
+      <h1 class="brand"><a href="/">Connexa</a></h1>
+      <nav aria-label="Navegação principal">
+        <ul class="nav-list">
+          <li><a id="nav-create" href="/">Criar grupo</a></li>
+          <li><a id="nav-join" href="#join">Entrar em grupo</a></li>
+          <li><a href="/frontend/login.html">Login / Registrar</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="card" role="main" aria-labelledby="title">
+    <h1 id="title">Cadastro — Connexa</h1>
+    <p class="lead">Cadastre-se com seu email institucional <strong>@universidade.edu.br</strong></p>
+
+    <div id="status" aria-live="polite"></div>
+
+    <form id="form" novalidate>
+      <div>
+        <label for="nome">Nome (opcional)</label>
+        <input id="nome" name="nome" type="text" autocomplete="name" placeholder="Seu nome completo" />
+      </div>
+
+      <div>
+        <label for="email">Email institucional <span class="hint">(@universidade.edu.br)</span></label>
+        <input id="email" name="email" type="email" required aria-describedby="emailHelp" placeholder="aluno@universidade.edu.br" />
+        <div id="emailHelp" class="hint" aria-live="polite"></div>
+      </div>
+
+      <div>
+        <label for="senha">Senha</label>
+        <input id="senha" name="senha" type="password" required aria-describedby="senhaHelp" placeholder="Min. 8 caracteres, 1 maiúsc., 1 min., 1 número" />
+        <div id="senhaHelp" class="hint" aria-live="polite"></div>
+      </div>
+
+      <div>
+        <label for="senhaConfirm">Confirme a senha</label>
+        <input id="senhaConfirm" name="senhaConfirm" type="password" required aria-describedby="senhaConfirmHelp" placeholder="Repita a senha" />
+        <div id="senhaConfirmHelp" class="hint" aria-live="polite"></div>
+      </div>
+
+      <div class="flex" style="justify-content:space-between;align-items:center">
+        <div class="hint small">Você receberá um email com link para confirmar sua conta.</div>
+        <button type="submit" id="submitBtn"><span id="btnText">Cadastrar</span></button>
+      </div>
+    </form>
+
+    <p class="hint" style="margin-top:12px">Já tem conta? <a href="/frontend/index.html">Entrar</a></p>
+  </main>
+
+  <script defer src="/frontend/js/nav.js"></script>
+  <script defer src="/frontend/js/cadastro.js"></script>
+</body>
+</html>

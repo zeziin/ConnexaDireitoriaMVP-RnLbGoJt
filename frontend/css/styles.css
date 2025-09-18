@@ -1,0 +1,133 @@
+:root{
+  --primary:#007bff;
+  --primary-dark:#0056b3;
+  --bg:#ffffff;
+  --muted:#6c757d;
+  --text:#12202b;
+  --danger:#dc3545;
+  --success:#28a745;
+  --card-shadow: 0 6px 18px rgba(7,22,44,0.06);
+  --max-width:1100px;
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  /* Fundo mais suave em verde claro para destacar os forms escuros */
+  background: linear-gradient(180deg, #eaf6ef 0%, #e0f3e7 50%, #f8fff9 100%);
+  color:var(--text);
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+}
+
+.wrap{max-width:var(--max-width);margin:24px auto;padding:0 18px}
+
+/* NAVBAR */
+.header, header{
+  background-color: #044d21; /* cor sólida para evitar conflitos de transparência */
+  background-image: none;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  border-bottom: none; /* remove borda */
+  margin-top: 0; /* garante sem gap superior */
+}
+.header .wrap, header .wrap{background:transparent;padding:14px 18px;margin:0 auto}
+.header-inner, header .header-inner{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
+.brand{color:#ffffff;margin:0;font-size:1.15rem;font-weight:700;text-shadow:0 1px 0 rgba(0,0,0,0.15)}
+.brand a{color:inherit;text-decoration:none}
+.brand a:hover{opacity:0.95}
+.brand a:focus{outline:3px solid rgba(255,255,255,0.08);outline-offset:2px}
+.nav-list{list-style:none;margin:0;padding:0;display:flex;gap:10px;align-items:center}
+.nav-list a{color:#ffffff;text-decoration:none;padding:8px 10px;border-radius:8px;font-weight:600;opacity:1;display:inline-flex;align-items:center;transition:background-color .18s ease,transform .12s ease,color .18s ease}
+.nav-list a, .nav-list a:visited, .nav-list a:focus{color:#ffffff}
+.nav-list a .kbd{font-size:0.85rem}
+.nav-list a:hover{background:rgba(255,255,255,0.06);color:#ffffff;transform:translateY(-2px)}
+.nav-list a:active{transform:translateY(0)}
+.nav-list a.active{color:#ffffff;background:rgba(255,255,255,0.06)}
+
+/* LAYOUT */
+.grid{display:grid;grid-template-columns:1fr 360px;gap:24px}
+.card{
+  /* Tornar bloco principal também em verde escuro para consistência com auth-card */
+  background: linear-gradient(180deg, #073a22 0%, #044d21 100%);
+  border-left: 4px solid rgba(4,77,33,0.12);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: none;
+  min-height: 120px;
+}
+
+.auth-card{
+  background: linear-gradient(180deg, #073a22 0%, #044d21 100%);
+  border-left: 4px solid rgba(4,77,33,0.14);
+  max-width: 560px;
+  margin: 40px auto;
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: none;
+}
+h1,h2,h3,h4{margin:0 0 10px}
+.auth-card, .card{color: #ffffff}
+
+h1,h2,h3,h4{margin:0 0 10px}
+.lead{margin:0 0 12px;color:var(--muted)}
+
+label{display:block;font-size:0.95rem;color:var(--muted);margin-bottom:8px}
+input,select,button{font-family:inherit}
+input,select{width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(14,42,80,0.04);background:#fcfeff;color:var(--text)}
+input:focus{outline:3px solid rgba(0,123,255,0.08);outline-offset:2px}
+
+/* Inputs em blocos escuros (cards/auth) - deixam campos mais escuros e legíveis */
+.card input,
+.card select,
+.card textarea,
+.auth-card input,
+.auth-card select,
+.auth-card textarea{
+  background: rgba(0,0,0,0.12);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #ffffff;
+}
+.card input::placeholder,
+.card textarea::placeholder,
+.auth-card input::placeholder,
+.auth-card textarea::placeholder{
+  color: rgba(255,255,255,0.85);
+}
+.card label,
+.auth-card label,
+.card .hint,
+.auth-card .hint,
+.card .lead,
+.auth-card .lead{
+  color: rgba(255,255,255,0.95);
+}
+
+/* BUTTONS */
+button{background:linear-gradient(180deg,var(--primary),var(--primary-dark));color:#fff;border:0;padding:10px 14px;border-radius:10px;cursor:pointer;box-shadow:none;font-weight:600;transition:transform .12s ease,box-shadow .18s ease,filter .12s ease}
+button:hover, button:focus{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,123,255,0.12);filter:brightness(1.03);outline:none}
+button.secondary{background:#f5fbff;color:var(--primary);border:1px solid rgba(0,123,255,0.08);box-shadow:none}
+
+.form-actions{margin-top:14px;display:flex;gap:10px;align-items:center;justify-content:space-between}
+.list{margin-top:12px}
+.group{padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.02);}
+.hint{font-size:0.9rem;color:var(--muted)}
+.status{margin-bottom:10px;padding:10px;border-radius:10px}
+.status.error{background:rgba(220,53,69,0.06);color:var(--danger);border:1px solid rgba(220,53,69,0.08)}
+.status.success{background:rgba(40,167,69,0.06);color:var(--success);border:1px solid rgba(40,167,69,0.08)}
+input[aria-invalid="true"]{border-color:var(--danger);box-shadow:0 0 0 4px rgba(220,53,69,0.06)}
+.spinner{border:3px solid rgba(255,255,255,0.12);border-top:3px solid #fff;border-radius:50%;width:16px;height:16px;display:inline-block;animation:spin 1s linear infinite;margin-right:8px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Responsividade */
+@media (max-width:920px){
+  .grid{grid-template-columns:1fr}
+  .nav-list{gap:8px}
+}
+
+/* Accessibility */
+a:focus, button:focus, input:focus{outline-offset:2px}
+

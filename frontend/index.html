@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Connexa — Grupos de Estudo</title>
+  <link rel="stylesheet" href="/frontend/css/styles.css">
+  <!-- Groups UI: create and join study groups. Links to backend endpoints /api/grupos (create) and /api/grupos/entrar (join). -->
+</head>
+<body>
+  <header>
+    <div class="wrap header-inner">
+      <h1 class="brand"><a href="/">Connexa</a></h1>
+      <nav aria-label="Navegação principal">
+        <ul class="nav-list">
+          <li><a id="nav-create" href="/">Criar grupo</a></li>
+          <li><a id="nav-join" href="#join">Entrar em grupo</a></li>
+          <li><a href="/frontend/login.html">Login / Registrar</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="grid">
+      <section class="card">
+        <h2>Criar novo grupo</h2>
+        <p class="hint">Crie um grupo para sua disciplina ou matéria e compartilhe o código com colegas.</p>
+        <div id="createStatus" aria-live="polite"></div>
+        <form id="createForm">
+          <div>
+            <label for="titulo">Título do grupo</label>
+            <input id="titulo" name="titulo" type="text" required placeholder="Ex: Cálculo II - Tarde" />
+          </div>
+          <div style="margin-top:8px">
+            <label for="descricao">Descrição (opcional)</label>
+            <input id="descricao" name="descricao" type="text" placeholder="Descrição curta" />
+          </div>
+          <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
+            <button type="submit">Criar grupo</button>
+            <div class="hint">Código será gerado automaticamente.</div>
+          </div>
+        </form>
+
+        <h3 style="margin-top:16px">Meus grupos</h3>
+        <div id="myGroups" class="list"></div>
+      </section>
+
+      <aside class="card">
+        <h3>Entrar em um grupo</h3>
+        <div id="joinStatus" aria-live="polite"></div>
+        <form id="joinForm">
+          <label for="codigo">Código do grupo</label>
+          <input id="codigo" name="codigo" type="text" required placeholder="Código do grupo" />
+          <div style="margin-top:10px;display:flex;gap:8px">
+            <button type="submit">Entrar</button>
+            <button type="button" id="refreshBtn">Atualizar lista</button>
+          </div>
+        </form>
+
+        <h4 style="margin-top:12px">Grupos públicos</h4>
+        <div id="publicGroups" class="list"></div>
+      </aside>
+    </div>
+  <script defer src="/frontend/js/nav.js"></script>
+  <script defer src="/frontend/js/index.js"></script>
+</body>
+</html>
